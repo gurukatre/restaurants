@@ -1,3 +1,4 @@
+import initMap, {addMarkers, addInfo} from './map';
 export default (() => {
 	const list = document.querySelector('#locationsList');
 
@@ -56,9 +57,12 @@ export default (() => {
 		name.textContent = doc.data().name;
 		description.textContent = truncateString(doc.data().description, 100);
 
+		const marker = addMarkers(name.textContent, doc.data().location.lat, doc.data().location.long);
+
 		li.appendChild(createImage(doc.data().logo));
 		li.appendChild(name);
 		li.appendChild(description);
+		li.onclick = addInfo.bind(this, name.textContent, marker[0], marker[1]);
 		list.appendChild(li);
 	}
 
@@ -67,9 +71,9 @@ export default (() => {
 	 * of restaurant
 	 */
 	function restoList() {
+		initMap();
 		db.collection('restoLocations').onSnapshot((snapshot) => {
 			let changes = snapshot.docChanges();
-			console.log(changes);
 			changes.forEach(element => {
 				renderStocks(element.doc);
 			});
