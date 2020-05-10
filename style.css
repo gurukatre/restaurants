@@ -62,3 +62,16 @@ li:hover {
 }
 
 /* style for nice to have feature filter by name 'end' */
+
+
+/* style for Map 'start' */
+#map {
+  width: 500px;
+  height: 500px;
+}
+
+div.gm-style-iw, div.gm-style-iw-d, .gm-style-iw-d > div {
+  margin: 0px;
+}
+
+/* style for Map 'end' */
