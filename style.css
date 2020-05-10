@@ -1,0 +1,64 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0; padding: 0;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: aliceblue;
+    height: 90vh;
+}
+ 
+div {
+  margin: 20px;
+}
+
+/* style for list 'start' */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 20px;
+  border: 1px dotted #ccc;
+  width: 450px;
+  height: 450px;
+  overflow: auto;
+  scroll-behavior: smooth;
+}
+ 
+li img {
+  float: left;
+  margin: 0 15px 0 0;
+}
+ 
+li p {
+  font: 200 12px/1.5 Georgia, Times New Roman, serif;
+}
+ 
+li {
+  padding: 10px;
+  overflow: auto;
+}
+ 
+li:hover {
+  background: #eee;
+  cursor: pointer;
+}
+
+/* style for list 'end' */
+
+/* style for nice to have feature filter by name 'start' */
+#Search {
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 20px;
+  border: 1px solid #ddd;
+  margin-bottom: 6px;
+}
+
+/* style for nice to have feature filter by name 'end' */

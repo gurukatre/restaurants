@@ -1,5 +1,4 @@
-import list from './restaurantList';
+import restaurantList from './restaurantList';
+import '../style.css';
 
-
-
-
+restaurantList();

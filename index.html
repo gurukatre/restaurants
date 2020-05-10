@@ -1,37 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- The core Firebase JS SDK is always required and must be listed first -->
-        <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-firestore.js"></script>
-    <title>Document</title>
-</head>
-<body>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- The core Firebase JS SDK is always required and must be listed first -->
+		<script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-firestore.js"></script>
+		<title>Document</title>
+	</head>
+	<body>
 
+		<div>
+			<input type="text" id="Search" placeholder="Search for names..">
+			<ul id="locationsList"></ul>
+		</div>
 
-    <ul id="locationsList"></ul>
+		<!-- https://firebase.google.com/docs/web/setup#available-libraries -->
+		<script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-analytics.js"></script>
 
-<!-- https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-analytics.js"></script>
-
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyAo703wptfev04RCwvbeGckXaHGh_tUUpk",
-    authDomain: "restaurants-b6a3d.firebaseapp.com",
-    databaseURL: "https://restaurants-b6a3d.firebaseio.com",
-    projectId: "restaurants-b6a3d",
-    storageBucket: "restaurants-b6a3d.appspot.com",
-    messagingSenderId: "292662131539",
-    appId: "1:292662131539:web:4e925057c4ab52e1453fa6",
-    measurementId: "G-FFV90N8PZQ"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-  const db = firebase.firestore();
-</script>
-</body>
+		<script>
+			// Your web app's Firebase configuration
+			var firebaseConfig = {
+				apiKey: "AIzaSyAo703wptfev04RCwvbeGckXaHGh_tUUpk",
+				authDomain: "restaurants-b6a3d.firebaseapp.com",
+				databaseURL: "https://restaurants-b6a3d.firebaseio.com",
+				projectId: "restaurants-b6a3d",
+				storageBucket: "restaurants-b6a3d.appspot.com",
+				messagingSenderId: "292662131539",
+				appId: "1:292662131539:web:4e925057c4ab52e1453fa6",
+				measurementId: "G-FFV90N8PZQ"
+			};
+			// Initialize Firebase
+			firebase.initializeApp(firebaseConfig);
+			firebase.analytics();
+			const db = firebase.firestore();
+		</script>
+	</body>
 </html>
