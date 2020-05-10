@@ -1,12 +1,34 @@
 export default (() => {
 	const list = document.querySelector('#locationsList');
 
-	function createImage(src, width, height, alt) {
+	/** nice to have search by name feature */
+	const Search = document.querySelector('#Search');
+	Search.addEventListener('keyup', filter);
+
+	function filter() {
+		// Declare variables
+		var h3, i, txtValue;
+		let input = document.getElementById('Search');
+		let filter = input.value.toUpperCase();
+		let ul = document.getElementById("locationsList");
+		let li = ul.getElementsByTagName('li');
+
+		// Loop through all list items, and hide those who don't match the search query
+		let liLength = li.length;
+		for (i = 0; i < liLength; i++) {
+			h3 = li[i].getElementsByTagName("h3")[0];
+			txtValue = h3.textContent || h3.innerText;
+			if (txtValue.toUpperCase().indexOf(filter) > -1) {
+				li[i].style.display = "";
+			} else {
+				li[i].style.display = "none";
+			}
+		}
+	}
+
+	function createImage(src) {
 		var x = document.createElement("IMG");
 		x.setAttribute("src", src);
-		x.setAttribute("width", width);
-		x.setAttribute("height", height);
-		x.setAttribute("alt", alt);
 		return x;
 	}
 
