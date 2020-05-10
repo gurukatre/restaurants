@@ -12,7 +12,33 @@
 		<!--Show list-->
 		<div>
 			<input type="text" id="Search" placeholder="Search for names..">
+			<input id="addLocation" type="button" value="Add Location" />
 			<ul id="locationsList"></ul>
+		</div>
+		<!--Show Form-->
+		<div class="location">
+			<form id="locationForm">
+		  
+			  <label for="fname">Name</label>
+			  <input type="text" id="name" name="name" placeholder="name..">
+		  
+			  <label for="Description">Description</label>	
+			  <textarea id="description" name="description" placeholder="Description.." style="height:100px"></textarea>
+	
+			  <label for="Logo">Logo</label>
+			  <input type="text" id="logo" name="logo" placeholder="logo url">
+	
+			  <label for="lat">Latitude </label>
+			  <input type="text" name="lat" placeholder="Latitude..">
+	
+			  <label for="lng">Longitude</label>
+			  <input type="text" name="lng" placeholder="Longitude..">
+		  
+			  <div class="formControl">
+				<input class="cancelBtn" type="button" id="closeLocForm" value="Cancel" />
+				<input type="button" id="submitLocForm" value="Submit" />
+			  </div>
+			</form>
 		</div>
 		<!--Show map-->
 		<div id="map"></div>
