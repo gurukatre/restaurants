@@ -120,3 +120,12 @@ input[type=submit]:hover {
 .formControl > .cancelBtn {
   float: left;
 }
+
+/*delete */
+#delete {
+  float: right;
+  position: relative;
+  color: red;
+  padding: 10px;
+  display: block;
+}

@@ -1,4 +1,4 @@
-import initMap, {addMarkers, addInfo} from './map';
+import initMap, {addMarkers, addInfo, removeMarker} from './map';
 export default (() => {
 	const list = document.querySelector('#locationsList');
 
@@ -52,18 +52,29 @@ export default (() => {
 		let li = document.createElement('li');
 		let name = document.createElement('h3');
 		let description = document.createElement('p');
+		let cross = document.createElement('span');
 
 		li.setAttribute('data-id', doc.id);
 		name.textContent = doc.data().name;
 		description.textContent = truncateString(doc.data().description, 100);
+		cross.textContent = 'x';
+		cross.setAttribute("id", "delete");
 
-		const marker = addMarkers(name.textContent, doc.data().location.lat, doc.data().location.long);
+		const [map, marker] = addMarkers(name.textContent, doc.data().location.lat, doc.data().location.long);
 
 		li.appendChild(createImage(doc.data().logo));
 		li.appendChild(name);
 		li.appendChild(description);
-		li.onclick = addInfo.bind(this, name.textContent, marker[0], marker[1]);
+		li.appendChild(cross);	
+		li.onclick = addInfo.bind(this, name.textContent, map, marker);
 		list.appendChild(li);
+
+		cross.addEventListener('click', (e) => {
+			e.stopPropagation();
+			let id = e.target.parentElement.getAttribute('data-id');
+			db.collection('restoLocations').doc(id).delete();
+			removeMarker(marker);
+		})
 	}
 
 	/**
@@ -75,7 +86,12 @@ export default (() => {
 		db.collection('restoLocations').onSnapshot((snapshot) => {
 			let changes = snapshot.docChanges();
 			changes.forEach(element => {
-				renderStocks(element.doc);
+				if(element.type == 'added') {
+					renderStocks(element.doc);
+				} else if(element.type == 'removed') {
+					let li = list.querySelector('[data-id=' + element.doc.id + ']');
+					list.removeChild(li);
+				}
 			});
 		});
 	}

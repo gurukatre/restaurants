@@ -35,3 +35,8 @@ export function addInfo(title, map, marker) {
 	infowindow.open(map, marker);
 }
 
+export function removeMarker(marker){
+	console.log(marker);
+    markers[markers.indexOf(marker)].setMap(null);
+}
+
